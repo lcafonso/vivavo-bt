@@ -274,7 +274,8 @@
 	background-size : cover;
 	}
 	.hoverbtn {
-	background : rgba(0, 0, 0, 0);
+	
+
 	}
 	.hoverbtn img {
 	opacity : 1;
@@ -346,11 +347,11 @@
             <!-- Primeira linha -->
             <div class="containbox" >
                 <div class="leftbox fill">
-                    <img src="img/media/IMG_0001.jpg" alt="">    
+                    <figure> <img src="img/media/IMG_0001.jpg" alt=""/> </figure>
                 </div>
                 <div class="space"></div>
                 <div class="rightbox fill" >
-                    <img src="img/media/IMG_5356.jpg" alt="">
+                    <figure> <img src="img/media/IMG_5356.jpg" alt=""/> </figure>
                 </div>
             </div> 
 
@@ -359,11 +360,11 @@
             <!-- Segunda linha -->     
             <div class="containbox" >
                 <div class="leftboxb fill">
-                    <img src="img/media/IMG_8784.jpg" alt="">    
+                    <figure> <img src="img/media/IMG_8784.jpg" alt=""/> </figure>    
                 </div>
                 <div class="space"></div>
                 <div class="rightboxb fill" >
-                    <img src="img/media/IMG_8773_2.jpg" alt="">
+                    <figure> <img src="img/media/IMG_8773_2.jpg" alt=""/> </figure>
                 </div>
             </div>
             
