@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('customStyle')
+
+@endsection
+
 
 @section('content')
 

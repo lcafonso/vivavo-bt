@@ -291,7 +291,8 @@
     <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
     <script src="{{ url('js/masonry.pkgd.min.js') }}"></script>
 
-    
+    <!-- Others scripts  -->
+    <script src="{{ url('js/wow.js') }}"></script>
 
     
     @yield('javascript')

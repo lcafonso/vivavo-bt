@@ -58,7 +58,7 @@
               border-width:0px;
               border-color:#000000;
               background-color:transparent;
-              padding-top:123px;
+              padding-top:50px;
               padding-bottom:62px;
               width:100%;
               max-width:1400px;
@@ -502,7 +502,7 @@
                 <div class="position_content" id="u127_position_content">
                     <div class="view view-first"><!-- custom html -->
                         
-                             <img src="img/media/img_8784.jpg" />  
+                             <img src="img/media/img_8784.jpg" style="height: 150%; object-fit: cover;" />  
                              <div class="mask">  
                              <h2>Gastronomia e Tradições</h2>  
                              <p>Gastronomia e Tradições</p>  
