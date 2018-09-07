@@ -1,234 +1,45 @@
 @extends('layouts.master')
 
-
+<!-- Style Section -->
 @section('customStyle')
 
-<style type="text/css">
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+<style>
+:root {
+  --bg-color-gallery: #f0f0f0;
+  --bg-color-harvest-gold: #e2c37c;
+  --bg-color-tussock: #bb9246;
+  --bg-color-cloudy: #aba6a3;
+  --bg-color-gunsmoke: #7e8a84;
+  --bg-color-stack: #949982;
+  --bg-color-chestnut: #be5649;
+  --bg-color-lime-spruce: #3a4953;
+  --bg-color-mineshaft: #353535;
 }
 
-button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
+.rcorners-bar {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background: #e2c37c;
+    
+    transform: translate(-10%, 18px);
+
 }
 
-
-/* .section SECTION
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.section {
-  background: #F45B69;
-  padding: 10px 0;
-}
-
-.section .container {
-	background: #f0f0f0;
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.section h1 {
-  font-size: 2.5rem;
-}
-
-.section h2 {
-  font-size: 1.3rem;
-}
-
-
-/* TIMELINE
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.timeline {
-	
-  background: #f0f0f0;
-  white-space: nowrap;
-  overflow-x: hidden;
-}
-
-.timeline ol {
-
-  font-size: 0;
-  width: 100vw;
-  padding: 200px 0;
-  transition: all 1s;
-}
-
-.timeline ol li {
-  position: relative;
-  display: inline-block;
-  list-style-type: none;
-  width: 160px;
-  height: 1px;
-  background: url('img/dot.gif') 1px top repeat-x;
-}
-
-.timeline ol li:last-child {
-  width: 280px;
-}
-
-.timeline ol li:not(:first-child) {
-  margin-left: 14px;
-}
-
-.timeline ol li:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 1px);
-  bottom: 0;
-  width: 12px;
-  height: 12px;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  background: #bb9246;
-}
-
-.timeline ol li div {
-  position: absolute;
-  left: calc(100% + 7px);
-  width: 280px;
-  padding: 0px;
-  font-size: .8rem;
-  white-space: normal;
-  color: black;
-  background: linear-gradient(to right, white , transparent);
-}
- 
-.timeline ol li div::before {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-}
-
-.timeline ol li:nth-child(odd) div {
-  top: -16px;
-  transform: translateY(-100%);
-}
- 
-.timeline ol li:nth-child(odd) div::before {
-  top: 100%;
-  border-width: 8px 8px 0 0;
-  border-color: white transparent transparent transparent;
-}
-
-.timeline ol li:nth-child(even) div {
-  top: calc(100% + 16px);
-}
- 
-.timeline ol li:nth-child(even) div::before {
-  top: -8px;
-  border-width: 8px 0 0 8px;
-  border-color: transparent transparent transparent white;
-}
-
-.timeline time {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: normal;
-  font-style: italic;
-}
-
-.timeline title {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: bold;
-  font-style: normal;
-  margin-bottom: 8px;
-}
-
-/* TIMELINE ARROWS
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.timeline .arrows {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
- 
-.timeline .arrows .arrow__prev {
-  margin-right: 20px;
-}
- 
-.timeline .disabled {
-  opacity: .5;
-}
- 
-.timeline .arrows img {
-  width: 25px;
-  height: 25px;
-}
-
-/* GENERAL MEDIA QUERIES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-@media screen and (max-width: 599px) {
-  .timeline ol,
-  .timeline ol li {
-    width: auto; 
-  }
-  
-  .timeline ol {
-    padding: 0;
-    transform: none !important;
-  }
-  
-  .timeline ol li {
-    display: block;
+.small-icons{
+    width: 25px; 
     height: auto;
-    background: transparent;
-  }
-  
-  .timeline ol li:first-child {
-    margin-top: 25px;
-  }
-  
-  .timeline ol li:not(:first-child) {
-    margin-left: auto;
-  }
-  
-  .timeline ol li div {
-    width: 94%;
-    height: auto !important;
-    margin: 0 auto 25px;
-  }
-  
-  .timeline ol li div {
-    position: static;
-  }
-  
-  .timeline ol li:nth-child(odd) div {
-    transform: none;
-  }
-  
-  .timeline ol li:nth-child(odd) div::before,
-  .timeline ol li:nth-child(even) div::before {
-    left: 50%;
-    top: 100%;
-    transform: translateX(-50%);
-    border: none;
-    border-left: 1px solid white;
-    height: 25px;
-  }
-  
-  .timeline ol li:last-child,
-  .timeline ol li:nth-last-child(2) div::before,
-  .timeline ol li:not(:last-child)::after,
-  .timeline .arrows {
-    display: none;
-  }
+}
+
+.small-text{
+   font-size:small;
+   line-height: 1
+}
+
+.logo-instituicao {
+  display: block; 
+  filter: invert(100%); 
+  margin-left: auto; 
+  margin-right: auto; 
 }
 
 </style>
@@ -236,219 +47,377 @@ button {
 @endsection
 
 
+<!-- Content Section -->
 @section('content')
 
+<div class="container">
+  <!-- entidade de acolhimento -->
+  <div class="row" style="width: 100%; height: auto; margin-bottom: 1em;">
 
-	
-<div class="container">	
-<section class="timeline">
+      <div class="col-sm-2" style="background-color: var(--bg-color-gallery); height: 40px;">
+          <div class="rcorners-bar pt-2" style="background-color: var(--bg-color-stack);"> </div> 
+      </div>
 
-  <ol>
-    <li>
-      <div>
-        <time>1934</time> <title>At vero eos et accusamus</title> et iusto odio dignissimos ducimus qui blanditiis praesentium At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+      <div class="col-sm-3" style="background-color: var(--bg-color-gallery); width: 100%; height: 40px;">
+        <p style="color: var(--bg-color-stack); line-height: 2; ">Entidade de acolhimento</p>
       </div>
-    </li>
-    <li>
-      <div>
-        <time>1937</time> <title>Proin quam velit</title> efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
+
+      <div class="col-sm-3" >
+        <img src="img/IPB-Branco.png" alt="" class="logo-instituicao" style="width: 100%;">
       </div>
-    </li>
-    <li>
-      <div>
-        <time>1940</time> <title>Proin iaculis</title>, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
+
+      <div class="col-sm-4" >
+        <div class="row">
+          <div class="col-sm-2">
+            <img src="img/TelefonePreto.png" alt="" class="small-icons">
+          </div>
+          <div class="col">
+            <p class="small-text">278201340 / 300029900</p>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-2">
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons">
+          </div>
+          <div class="col">
+            <p class="small-text">e-mail geral: email@ipb.pt</p>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-2">
+            <img src="img/LocalizacaoPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p class="small-text">Campus do Cruzeiro</p>
+            <p class="small-text">Avenida 25 de Abril, Cruzeiro, Lote 2.</p>
+            <p class="small-text">Apartado 128. 5370-202 Mirandela</p>
+          </div>
+        </div>
       </div>
-    </li>
-    <li>
-      <div>
-        <time>1943</time> <title>In mattis elit</title> vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+  </div>
+  <br>
+  <!-- entidade copromotora -->
+  <div class="row" style="width: 100%; height: auto;">
+
+      <div class="col-sm-2" style="background-color: var(--bg-color-cloudy); height: 40px;">
+          <div class="rcorners-bar pt-2" style="background-color: var(--bg-color-gunsmoke);"> </div> 
       </div>
-    </li>
-    <li>
-      <div>
-        <time>1946</time> <title>In mattis elit</title> vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+
+      <div class="col-sm-3" style="background-color: var(--bg-color-cloudy); width: 100%; height: 40px;">
+        <p style="color: var(--bg-color-gunsmoke); line-height: 1; ">Entidades participantes copromotivas</p>
       </div>
-    </li>
-    <li>
-      <div>
-        <time>1956</time> <title>In mattis elit</title> vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+
+      <div class="col-sm-3">
+        <img src="img/logo-PE2.png" alt="" class="logo-instituicao" style="width: 60%;">
       </div>
-    </li>
-    <li>
-      <div>
-        <time>1957</time> <title>In mattis elit</title> vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
+
+      <div class="col-sm-4" >
+        <div class="row">
+          <div class="col-sm-2">
+            <img src="img/TelefonePreto.png" alt="" class="small-icons">
+          </div>
+          <div class="col" >
+            <p class="small-text">258809610 / 965919650</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons">
+          </div>
+          <div class="col" >
+            <p class="small-text">E-mail Geral: geral@ipvc.pt</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2" >
+            <img src="img/LocalizacaoPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p class="small-text">Rua Escola Industrial e</p>
+            <p class="small-text">Comercial de Nun’Álvares, n.º 34</p>
+            <p class="small-text">4900-347 Viana do Castelo</p>
+          </div>
+        </div>
       </div>
-    </li>
-    <li>
-      <div>
-        <time>1967</time> <title>Aenean condimentum</title> odio a bibendum rhoncus. Ut mauris felis, volutpat eget porta faucibus, euismod quis ante.
+  </div>
+  <br><br>
+  <!-- entidade copromotora -->
+  <div class="row" style="width: 100%; height: auto;">
+
+      <div class="col-sm-2" > </div>
+      <div class="col-sm-3" > </div>
+
+      <div class="col-sm-3" >
+        <img src="img/hotel_logo_footer.png" alt="" class="logo-instituicao" style="width: 80%;">
       </div>
-    </li>
-    <li>
-      <div>
-        <time>1977</time> <title>Vestibulum porttitor</title> lorem sed pharetra dignissim. Nulla maximus, dui a tristique iaculis, quam dolor convallis enim, non dignissim ligula ipsum a turpis.
+
+      <div class="col-sm-4">
+        <div class="row">
+          <div class="col-sm-2" >
+            <img src="img/TelefonePreto.png" alt=""  class="small-icons" >
+          </div>
+          <div class="col" >
+            <p class="small-text">+351273302510</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2" >
+            <img src="img/EmailPretoPNG.png" alt=""  class="small-icons" >
+          </div>
+          <div class="col" >
+            <p class="small-text">E-mail Geral: geral@amontesinho.pt</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2" >
+            <img src="img/LocalizacaoPretoPNG.png" alt=""  class="small-icons"  >
+          </div>
+          <div class="col" >
+            <p class="small-text">Rua Coronel Álvaro Cepeda, n.º1</p>
+            <p class="small-text">5300-553 Gimonde Bragança</p>
+            <p class="small-text">Portugal</p>
+            <p class="small-text"> </p>
+            <p class="small-text">http://www.amontesinho.pt/</p>
+          </div>
+        </div>
       </div>
-    </li>
-    <li>
-      <div>
-        <time>1985</time> <title>In mattis elit</title> vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2000</time> <title>In mattis elit vitae</title> odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2005</time> <title>In mattis elit</title> vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li></li>
-  </ol>
-  
-  <div class="arrows">
-    <button class="arrow arrow__prev disabled" disabled>
-      <img src="img/svg/arrow_prev.svg" alt="prev timeline arrow">
-    </button>
-    <button class="arrow arrow__next">
-      <img src="img/svg/arrow_next.svg" alt="next timeline arrow">
-    </button>
   </div>
 
-</section>
-</div>  
+  <br><br>
+  <!-- Investigador responssavel -->
+  <div class="row" style="width: 100%; height: auto;">
+
+      <div class="col-sm-2" style="background-color: var(--bg-color-harvest-gold); height: 40px;">
+          <div class="rcorners-bar pt-2" style="background-color: var(--bg-color-tussock);"> </div> 
+      </div>
+      <div class="col-sm-3" style="background-color: var(--bg-color-harvest-gold); width: 100%; height: 40px;">
+        <p style="color: var(--bg-color-tussock); line-height: 2; ">Investigador(a) principal</p>
+      </div>
+      <div class="col-sm-7" >
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Paula Odete Fernades</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">pof@ipb.pt</p>
+          </div>
+        </div>
+
+      </div>
+  </div>
+
+
+  <br><br>
+ <!-- Investigadores -->
+    <div class="row" style="width: 100%; height: auto;">
+
+      <div class="col-sm-2" style="background-color: var(--bg-color-harvest-gold); height: 40px;">
+          <div class="rcorners-bar pt-2" style="background-color: var(--bg-color-tussock);"> </div> 
+      </div>
+      <div class="col-sm-3" style="background-color: var(--bg-color-harvest-gold); width: 100%; height: 40px;">
+        <p style="color: var(--bg-color-tussock); line-height: 2; ">Investigadores</p>
+      </div>
+      <div class="col-sm-7" >
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Luís Pires</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">luica@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Aida Carvalho</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">acarvalho@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Alexandra Correia</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">acorreia@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Alexandre Parafita</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">parafita@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Carlos Casimiro Costa</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">carlos.costa@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Carlos Cunha</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">crc@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Elsa Ramalhosa</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">elsa@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Ricardo Correia</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">ricardocorreia@ipb.pt</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <br><br>
+    <!-- Bolseiros -->
+    <div class="row" style="width: 100%; height: auto;">
+
+      <div class="col-sm-2" style="background-color: var(--bg-color-gallery); height: 40px;">
+          <div class="rcorners-bar pt-2" style="background-color: var(--bg-color-stack);"> </div> 
+      </div>
+      <div class="col-sm-3" style="background-color: var(--bg-color-gallery); width: 100%; height: 40px;">
+        <p style="color: var(--bg-color-stack); line-height: 2; ">Bolseiros</p>
+      </div>
+      <div class="col-sm-7" >
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Alexandra Moura</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">alexandra.moura@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Carla Fontes</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">carlafontes@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Daniel Silva</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">danimagsilva@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Imran Khan</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">imrankhan@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Luís Afonso</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">lafonso@ipb.pt</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5" >
+            <p>Patrícia Reina</p>
+          </div>
+          <div class="col-sm-1" >
+            <img src="img/EmailPretoPNG.png" alt="" class="small-icons" >
+          </div>
+          <div class="col" >
+            <p  class="small-text">patriciareina@ipb.pt</p>
+          </div>
+        </div>            
+      </div>      
+  </div>
+  <br><br>
+
+
+</div>
+
 
 @endsection
 
 
+<!-- Java Section -->
 @section('javascript')
 
 
-<script>
-
-(function() {
-
-  // VARIABLES
-  const timeline = document.querySelector(".timeline ol"),
-    elH = document.querySelectorAll(".timeline li > div"),
-    arrows = document.querySelectorAll(".timeline .arrows .arrow"),
-    arrowPrev = document.querySelector(".timeline .arrows .arrow__prev"),
-    arrowNext = document.querySelector(".timeline .arrows .arrow__next"),
-    firstItem = document.querySelector(".timeline li:first-child"),
-    lastItem = document.querySelector(".timeline li:last-child"),
-    xScrolling = 280,
-    disabledClass = "disabled";
-
-  // START
-  window.addEventListener("load", init);
-
-  function init() {
-    setEqualHeights(elH);
-    animateTl(xScrolling, arrows, timeline);
-    setSwipeFn(timeline, arrowPrev, arrowNext);
-    setKeyboardFn(arrowPrev, arrowNext);
-  }
-
-  // SET EQUAL HEIGHTS
-  function setEqualHeights(el) {
-    let counter = 0;
-    for (let i = 0; i < el.length; i++) {
-      const singleHeight = el[i].offsetHeight;
-
-      if (counter < singleHeight) {
-        counter = singleHeight;
-      }
-    }
-
-    for (let i = 0; i < el.length; i++) {
-      el[i].style.height = `${counter}px`;
-    }
-  }
-
-  // CHECK IF AN ELEMENT IS IN VIEWPORT
-  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
-  function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
-
-  // SET STATE OF PREV/NEXT ARROWS
-  function setBtnState(el, flag = true) {
-    if (flag) {
-      el.classList.add(disabledClass);
-    } else {
-      if (el.classList.contains(disabledClass)) {
-        el.classList.remove(disabledClass);
-      }
-      el.disabled = false;
-    }
-  }
-
-  // ANIMATE TIMELINE
-  function animateTl(scrolling, el, tl) {
-    let counter = 0;
-    for (let i = 0; i < el.length; i++) {
-      el[i].addEventListener("click", function() {
-        if (!arrowPrev.disabled) {
-          arrowPrev.disabled = true;
-        }
-        if (!arrowNext.disabled) {
-          arrowNext.disabled = true;
-        }
-        const sign = (this.classList.contains("arrow__prev")) ? "" : "-";
-        if (counter === 0) {
-          tl.style.transform = `translateX(-${scrolling}px)`;
-        } else {
-          const tlStyle = getComputedStyle(tl);
-          // add more browser prefixes if needed here
-          const tlTransform = tlStyle.getPropertyValue("-webkit-transform") || tlStyle.getPropertyValue("transform");
-          const values = parseInt(tlTransform.split(",")[4]) + parseInt(`${sign}${scrolling}`);
-          tl.style.transform = `translateX(${values}px)`;
-        }
-
-        setTimeout(() => {
-          isElementInViewport(firstItem) ? setBtnState(arrowPrev) : setBtnState(arrowPrev, false);
-          isElementInViewport(lastItem) ? setBtnState(arrowNext) : setBtnState(arrowNext, false);
-        }, 1100);
-
-        counter++;
-      });
-    }
-  }
-
-  // ADD SWIPE SUPPORT FOR TOUCH DEVICES
-  function setSwipeFn(tl, prev, next) {
-    const hammer = new Hammer(tl);
-    hammer.on("swipeleft", () => next.click());
-    hammer.on("swiperight", () => prev.click());
-  }
-
-  // ADD BASIC KEYBOARD FUNCTIONALITY
-  function setKeyboardFn(prev, next) {
-    document.addEventListener("keydown", (e) => {
-      if ((e.which === 37) || (e.which === 39)) {
-        const timelineOfTop = timeline.offsetTop;
-        const y = window.pageYOffset;
-        if (timelineOfTop !== y) {
-          window.scrollTo(0, timelineOfTop);
-        }
-        if (e.which === 37) {
-          prev.click();
-        } else if (e.which === 39) {
-          next.click();
-        }
-      }
-    });
-  }
-
-})();
-
-</script>
 
 @endsection
